@@ -1,0 +1,190 @@
+:root {
+  --background-color: radial-gradient(circle at top left, #eeecdd 0%, #f0caa5 100%);
+  --border-color: #b56c52;
+  --dropdown-bg: #8faea7;
+  --text-color: #2b2b2b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Higuen', sans-serif;
+    background: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 20px;
+}
+
+@font-face {
+    font-family: 'Higuen';
+    src: url('fonts/Higuen-Regular.woff2') format('woff2'),
+         url('fonts/Higuen-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* --- Layout Positioning (Missing from your file) --- */
+
+/* Align items horizontally across the screen */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 40px;
+}
+
+/* Groups logo image and brand text together */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+.brand-name {
+    font-size: 28px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.logo-section a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Horizontal list layout for links */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    margin-right: auto;
+    margin-left: 40px;
+}
+
+.nav-item {
+    position: relative; 
+}
+
+/* Pill buttons design */
+.nav-button {
+    font-family: 'Higuen', sans-serif;
+    font-size: 16px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(181, 108, 82, 0.1);
+}
+
+.arrow {
+    font-size: 12px;
+}
+
+/* --- Dropdown Settings --- */
+
+.dropdown-menu {
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    position: absolute;
+    top: 135%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: var(--dropdown-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 12px;
+    width: 150px;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.nav-item:hover .dropdown-menu,
+.dropdown-menu.show {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-arrow {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid var(--dropdown-bg);
+}
+
+.dropdown-link {
+    font-family: 'Higuen', sans-serif;
+    font-size: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 15px;
+    transition: background 0.2s;
+}
+
+.dropdown-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Search Container Layout --- */
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 260px;
+}
+
+.search-input {
+    font-family: 'Higuen', sans-serif;
+    font-size: 16px;
+    width: 100%;
+    padding: 8px 35px 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: var(--text-color);
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    color: var(--border-color);
+    cursor: pointer;
+    font-size: 16px;
+}
